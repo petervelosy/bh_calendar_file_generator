@@ -111,7 +111,7 @@ public class BHExcelToICalendarConverter {
         return colCount;
     }
 
-    public void setStartDateAndDuration(XSSFCell durationCell, Calendar cal, VEvent event) {
+    private void setStartDateAndDuration(XSSFCell durationCell, Calendar cal, VEvent event) {
         int durationHours = (int) durationCell.getNumericCellValue();
         if (durationHours <= 4) {
             cal.set(Calendar.HOUR_OF_DAY, 17);
@@ -127,7 +127,7 @@ public class BHExcelToICalendarConverter {
         event.setDateStart(cal.getTime());
     }
 
-    public static boolean cellContainsTeacherName(XSSFCell cell, String teacherName) {
+    private boolean cellContainsTeacherName(XSSFCell cell, String teacherName) {
         return cell.getCellType() == CellType.STRING && (cell.getStringCellValue().equals(teacherName) || cell.getStringCellValue().equals("Mindenki"));
     }
 
